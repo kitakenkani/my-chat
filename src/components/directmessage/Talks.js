@@ -4,15 +4,16 @@ import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 
+
 class Talks extends Component {
 	render() {
 		console.log(this.props)
-		const {projects} = this.props
+		const {talks} = this.props
 		return(
 			<div className='dashboard container'>
 			<div className='row'>
 			<div className='col s12 m6'>
-				<TalkList projects={projects} />
+				<TalkList talks={talks} />
 			</div>
 			</div>
 			</div>
@@ -24,13 +25,13 @@ class Talks extends Component {
 const mapStateToProps = (state) => {
 	console.log(state)
 	return {
-		projects: state.project.projects
+		talks: state.firestore.ordered.talks
 	}
 }
 
 export default compose(
 	connect(mapStateToProps),
 	firestoreConnect([
-		{collection: 'projects'}
+		{collection: 'talks'}
 	]))(Talks);
 

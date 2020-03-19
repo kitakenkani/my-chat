@@ -4,7 +4,7 @@ import { createProject } from '../../store/actions/projectActions'
 import { Redirect } from 'react-router-dom'
 
 
-class CreateProject extends Component {
+export class TweetBox extends Component {
 	state = {
 		title: '',
 		content: ''
@@ -56,6 +56,5 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(CreateProject)
-
+export  connect(mapStateToProps,mapDispatchToProps)(TweetBox);
 

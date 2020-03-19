@@ -5,7 +5,8 @@ import { createNewTalkRoom } from '../../store/actions/talkActions'
 
 class CreateNewTalkRoom extends Component {
 	state = {
-		email: ''
+		email: '',
+		myemail: this.props.auth.email
 	}
 	handleChange = (e) => {
 		this.setState({
@@ -15,8 +16,11 @@ class CreateNewTalkRoom extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault()
 		this.props.createNewTalkRoom(this.state)
+		this.props.history.push('/dm')
 	}
 	render() {
+	console.log(this.props.auth)
+
 		return (
 			<div className='container'>
 				<form onSubmit={this.handleSubmit} className='white'>
@@ -40,7 +44,11 @@ const mapDispatchToProps = (dispatch) => {
 		createNewTalkRoom: (project) => dispatch(createNewTalkRoom(project))
 	}
 }
+const mapStateToProps = (state) => {
+	return {
+		auth: state.firebase.auth
+	}
+}
 
-
-export default connect(null,mapDispatchToProps)(CreateNewTalkRoom);
+export default connect(mapStateToProps,mapDispatchToProps)(CreateNewTalkRoom);
 

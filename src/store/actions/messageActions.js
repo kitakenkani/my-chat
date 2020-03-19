@@ -1,5 +1,5 @@
 
-export const DirectMessage = (project) => {
+export const directMessage = (project) => {
 	return (dispatch, getState, { getFirebase, getFirestore }) => {
 		const firestore = getFirestore();
 		const profile = getState().firebase.profile;

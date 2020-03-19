@@ -11,7 +11,8 @@ class SignUp extends Component {
 		email: '',
 		passward: '',
 		firstName: '',
-		lastName: ''
+		lastName: '',
+		handlename: ''
 	}
 	handleChange = (e) => {
 		this.setState({
@@ -45,6 +46,11 @@ class SignUp extends Component {
 						<label htmlFor='lastName'>Last Name</label>
 						<input type='text' id='lastName' onChange={this.handleChange }/>
 					</div>
+					<div className='input-field'>
+						<label htmlFor='handlename'>Handle Name</label>
+						<input type='text' id='handlename' onChange={this.handleChange }/>
+					</div>
+	
 					<div className='input-field'>
 						<button className='btn pink lighten-1 z-depth-0'>Sign up</button>
 						<div className='red-text center'>

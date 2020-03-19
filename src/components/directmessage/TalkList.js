@@ -3,13 +3,13 @@ import Talk from './Talk'
 import { Link } from 'react-router-dom'
 
 
-const TalkList = ({projects}) => {
+const TalkList = ({talks}) => {
     return (
         <div className="project-list section">
-		{ projects && projects.map(project => {
+		{ talks && talks.map(talk => {
 			return (
-			<Link to={'/talk/' + project.id} key={project.id}>
-				<Talk project={project} />
+			<Link to={'/talk/' + talk.id} key={talk.id}>
+				<Talk talk={talk} />
 			</Link>
 			)
 		})}
